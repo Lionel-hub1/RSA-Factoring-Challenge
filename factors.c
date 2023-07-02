@@ -8,11 +8,13 @@
  */
 struct Factors *factorize(int num)
 {
-	for (int i = 2; i <= sqrt(num); i++)
+	int limit = (int)sqrt(num) + 1;
+
+	for (int i = 2; i < limit; i++)
 	{
 		if (num % i == 0)
 		{
-			struct Factors *factors = (struct Factors *)malloc(sizeof(struct Factors));
+			struct Factors *factors = malloc(sizeof(struct Factors));
 
 			factors->factor1 = i;
 			factors->factor2 = num / i;
